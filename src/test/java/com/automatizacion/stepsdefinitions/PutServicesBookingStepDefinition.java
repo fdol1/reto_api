@@ -26,7 +26,7 @@ public class PutServicesBookingStepDefinition {
     public void makes_a_post_request_to_create_booking_post_create_booking(Services services, Map<String, Object> dataBooking) {
         theActorInTheSpotlight().attemptsTo(
                 Create.messageBody(PATH_JSON_CREATE_BOOKING, KEY_BODY_BOOKING, setDataCreateBooking(dataBooking)),
-                UpdateBooking.sendData(services)
+                UpdateBooking.sendData(services, String.valueOf(dataBooking.get("idBooking")))
         );
     }
 }

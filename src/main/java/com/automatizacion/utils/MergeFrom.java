@@ -33,7 +33,6 @@ public class MergeFrom {
         } catch (TemplateException | IOException e) {
             throw new IllegalStateException(ERROR_MERGE, e);
         }
-
         return writer.toString();
     }
 }

@@ -17,16 +17,18 @@ import static com.automatizacion.utils.ErrorMessage.IMPOSIBLE_INSTANT;
 public class UpdateBooking implements Task{
 
     private final Services service;
-    public UpdateBooking(Services service) {
+    private final String idBooking;
+    public UpdateBooking(Services service, String idBooking) {
         this.service = service;
+        this.idBooking = idBooking;
     }
 
     private UpdateBooking() {
         throw new ExceptionsCreateToken(IMPOSIBLE_INSTANT.getMessage());
     }
 
-    public static Performable sendData(Services service) {
-        return Tasks.instrumented(UpdateBooking.class, service);
+    public static Performable sendData(Services service, String idBooking) {
+        return Tasks.instrumented(UpdateBooking.class, service, idBooking);
     }
 
     @Override
@@ -34,7 +36,7 @@ public class UpdateBooking implements Task{
         String responseToken = actor.recall(KEY_RESPONSE_POST_TOKEN);
         String body = actor.recall(KEY_BODY_BOOKING);
         actor.attemptsTo(
-                Put.to(service.getServiceName()).with(requestSpecification ->
+                Put.to(service.getServiceName() + idBooking).with(requestSpecification ->
                         requestSpecification.contentType(ContentType.JSON)
                                 .header(HeaderParams.CONTENT_TYPE.getName(), HeaderParams.APPLICATION_JSON.getName())
                                 .header(HeaderParams.ACCEPT.getName(), HeaderParams.APPLICATION_JSON.getName())

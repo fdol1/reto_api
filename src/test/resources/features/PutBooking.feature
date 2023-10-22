@@ -16,6 +16,7 @@ Feature: A booking update is made through the API. To do this,
   Scenario Outline: Make put request waiting for OK response to UPDATE TOKEN
     Given that John makes a call to the API
     When Makes a put request to create booking PUT_UPDATE_BOOKING
+      | idBooking       | <idBooking>       |
       | firstname       | <firstname>       |
       | lastname        | <lastname>        |
       | totalprice      | <totalprice>      |
@@ -25,5 +26,5 @@ Feature: A booking update is made through the API. To do this,
       | additionalneeds | <additionalneeds> |
     Then Check the status of request 200
     Examples:
-      | firstname  | lastname | totalprice | depositpaid | checkin    | checkout   | additionalneeds |
-      | Jim_update | Brown    | 111        | true        | 2018-01-01 | 2019-01-01 | Breakfast       |
+      | idBooking | firstname  | lastname | totalprice | depositpaid | checkin    | checkout   | additionalneeds |
+      | 1         | Jim_update | Brown    | 111        | true        | 2018-01-01 | 2019-01-01 | Breakfast       |

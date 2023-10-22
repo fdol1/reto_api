@@ -5,7 +5,6 @@ import com.automatizacion.exceptions.ExceptionsCreateToken;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Utils {
 
     private Utils() {
@@ -30,10 +29,6 @@ public class Utils {
         mapDatacreateBooking.put("checkin", String.valueOf(dataCreateBooking.get("checkin")));
         mapDatacreateBooking.put("checkout", String.valueOf(dataCreateBooking.get("checkout")));
         mapDatacreateBooking.put("additionalneeds", String.valueOf(dataCreateBooking.get("additionalneeds")));
-
         return mapDatacreateBooking;
     }
-
-
-
 }

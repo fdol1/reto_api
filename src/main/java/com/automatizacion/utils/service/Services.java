@@ -5,7 +5,7 @@ public enum Services {
     GET_BOOKING("/booking/1"),
     GET_BOOKING_IDS("/booking"),
     POST_CREATE_TOKEN("/auth"),
-    PUT_UPDATE_BOOKING("/booking/1"),
+    PUT_UPDATE_BOOKING("/booking/"),
     POST_CREATE_BOOKING("/booking");
 
     private final String serviceName;
